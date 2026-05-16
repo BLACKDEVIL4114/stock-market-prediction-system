@@ -1,0 +1,48 @@
+app:
+  name: nse-ai-trader
+  environment: paper
+  timezone: Asia/Kolkata
+
+market:
+  benchmark: "^NSEI"
+  volatility_index_symbol: "^INDIAVIX"
+  watch_list:
+    - RELIANCE
+    - NIFTY 50
+    - BANKNIFTY
+    - TCS
+    - INFY
+  bar_interval: 1d
+  lookback_days: 365
+
+risk:
+  capital: 100000
+  max_daily_loss: 5000
+  max_risk_per_trade_pct: 0.02
+  max_open_positions: 5
+  max_sector_exposure_pct: 0.20
+  max_portfolio_var_pct: 0.03
+  risk_score_hard_stop: 80
+  daily_loss_circuit_breaker: 3000
+  drawdown_circuit_breaker_pct: 0.05
+  consecutive_losses_limit: 3
+
+signals:
+  min_confidence_threshold: 0.65
+  lookback_window: 60
+  target_horizon: 5
+
+execution:
+  mode: paper
+  broker: kiteconnect
+  paper_slippage_bps: 5
+
+telegram:
+  enabled: false
+  bot_token: "REPLACE_ME"
+  chat_id: "REPLACE_ME"
+
+api_keys:
+  kite_api_key: "REPLACE_ME"
+  kite_api_secret: "REPLACE_ME"
+  news_api_key: "REPLACE_ME"
